@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace PlaceIMG.Business.Repository
+namespace PlaceIMG.Business.Interfaces
 {
     public interface IImage
     {

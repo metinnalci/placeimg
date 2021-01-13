@@ -11,4 +11,9 @@
     <Folder Include="Views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PlaceIMG.Business\PlaceIMG.Business.csproj" />
+    <ProjectReference Include="..\PlaceIMG.Data\PlaceIMG.Data.csproj" />
+  </ItemGroup>
+
 </Project>
