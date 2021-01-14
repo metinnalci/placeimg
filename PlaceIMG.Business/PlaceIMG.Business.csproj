@@ -8,8 +8,4 @@
     <ProjectReference Include="..\PlaceIMG.Data\PlaceIMG.Data.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="UnitOfWork\" />
-  </ItemGroup>
-
 </Project>

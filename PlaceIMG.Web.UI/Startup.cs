@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PlaceIMG.Business.Interfaces;
 using PlaceIMG.Business.Repository;
+using PlaceIMG.Business.UnitOfWork;
 using PlaceIMG.Data.Models.Context;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace PlaceIMG.Web.UI
             services.AddMvc();
             services.AddSingleton<IImage, ImageRepository>();
             services.AddSingleton<IImageCrud, ImageCrudRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddDbContext<ImageContext>();
         }
 
