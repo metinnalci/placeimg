@@ -7,9 +7,13 @@ using System.Text;
 
 namespace PlaceIMG.Business.Repository
 {
-    public class ImageCrud : IImageCrud
+    public class ImageCrudRepository : IImageCrud
     {
         private readonly ImageContext context;
+        public ImageCrudRepository()
+        {
+            context = new ImageContext();
+        }
         public void Add(Image image)
         {
             context.Set<Image>().Add(image);
