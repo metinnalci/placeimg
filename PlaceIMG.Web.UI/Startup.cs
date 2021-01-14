@@ -3,6 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PlaceIMG.Business.Interfaces;
+using PlaceIMG.Business.Repository;
+using PlaceIMG.Data.Models.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +19,10 @@ namespace PlaceIMG.Web.UI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddSingleton<IImage, ImageRepository>();
+            services.AddSingleton<IImageCrud, ImageCrudRepository>();
+            services.AddDbContext<ImageContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,10 +37,7 @@ namespace PlaceIMG.Web.UI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllerRoute("default", "{Controller=Home}/{Action=Index}/{id?}");
             });
         }
     }

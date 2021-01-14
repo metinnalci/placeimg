@@ -16,6 +16,8 @@ namespace PlaceIMG.Business.Repository
         }
         public void Add(Image image)
         {
+            image.AddDate = DateTime.Now;
+            image.IsDeleted = false;
             context.Set<Image>().Add(image);
         }
     }

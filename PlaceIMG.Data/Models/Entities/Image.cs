@@ -9,6 +9,8 @@ namespace PlaceIMG.Data.Models.Entities
     {
         public string ImgPath { get; set; }
         public double Ratio { get; set; }
+        public DateTime AddDate { get; set; }
+        public bool IsDeleted { get; set; }
         public int? CatID { get; set; }
         [ForeignKey("CatID")]
         public Category Category { get; set; }
