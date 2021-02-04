@@ -13,6 +13,10 @@ namespace PlaceIMG.Web.UI.Controllers
             return View();
         }
 
-        
+        [HttpPost]
+        public IActionResult Index(string url)
+        {
+            return View();
+        }
     }
 }
