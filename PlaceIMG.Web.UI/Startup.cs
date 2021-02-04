@@ -21,6 +21,8 @@ namespace PlaceIMG.Web.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddControllersWithViews();
+            services.AddRazorPages();
             services.AddSingleton<IImage, ImageRepository>();
             services.AddSingleton<IImageCrud, ImageCrudRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -36,7 +38,8 @@ namespace PlaceIMG.Web.UI
             }
 
             app.UseRouting();
-
+            app.UseStaticFiles();
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("default", "{Controller=Home}/{Action=Index}/{id?}");
